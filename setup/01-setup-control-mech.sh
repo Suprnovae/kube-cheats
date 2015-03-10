@@ -1,10 +1,14 @@
 #!/bin/sh
 if test -z $IMAGE; then
-  IMAGE=coreos-alpha-472-0-0-v20141017
+  IMAGE=coreos
 fi
 
 if test -z $CLOUD_CONFIG; then
   CLOUD_CONFIG=control.yaml
+fi
+
+if test -z $MECH; then
+  MECH=f1-micro
 fi
 
 if test -z $PROJECT; then
