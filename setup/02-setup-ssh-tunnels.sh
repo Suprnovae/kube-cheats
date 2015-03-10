@@ -20,5 +20,5 @@ if test $1 == "up"; then
 elif test $1 == "down"; then
   kill -3 $(ps aux | grep -E 'ssh.*google' | grep -F $LOCAL_PORT:$REMOTE_HOST:$REMOTE_PORT | grep -F $USER@$TUNNEL_HOST | grep -Fv 'grep' | awk '{print $2}')
 else
-  echo "Usage: [LOCAL_PORT=X1] [USER=X2] [REMOTE_HOST=X3] [REMOTE_PORT=X4] [TUNNEL_HOST=X5] $0 (up|down)"
+  echo "Usage: [LOCAL_PORT=?] [USER=?] [REMOTE_HOST=?] [REMOTE_PORT=?] [TUNNEL_HOST=?] $0 (up|down)"
 fi

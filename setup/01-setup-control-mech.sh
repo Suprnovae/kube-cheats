@@ -42,5 +42,5 @@ elif test $1 == "down"; then
   gcloud compute instances delete kcontrol \
     --project $PROJECT
 else
-  echo "Usage: [IMAGE=X1 [IMAGE_PROJECT=X2]] [CLOUD_CONFIG=X3] [PROJECT=X4] [DISK_SIZE=X5] $0 (up|down)"
+  echo "Usage: [IMAGE=? [IMAGE_PROJECT=?]] [CLOUD_CONFIG=?] [PROJECT=?] [DISK_SIZE=?] $0 (up|down)"
 fi
