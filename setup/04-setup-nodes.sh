@@ -38,7 +38,7 @@ if test -z $IMAGE; then
 fi
 
 if test -z $CLOUD_CONFIG; then
-  CLOUD_CONFIG=node.yaml
+  CLOUD_CONFIG=cloud-configs/node.yaml
 fi
 
 if test -z $CONTROL_IP; then

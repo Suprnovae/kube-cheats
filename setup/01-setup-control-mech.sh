@@ -4,7 +4,7 @@ if test -z $IMAGE; then
 fi
 
 if test -z $CLOUD_CONFIG; then
-  CLOUD_CONFIG=control.yaml
+  CLOUD_CONFIG=cloud-configs/control.yaml
 fi
 
 if test -z $MECH; then
