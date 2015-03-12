@@ -15,8 +15,14 @@ if test -z $TUNNEL_HOST; then
   TUNNEL_HOST=$REMOTE_HOST
 fi
 
+if test -z $LOCAL_HOST; then
+  LOCAL_HOST_STR=
+else
+  LOCAL_HOST_STR=$LOCAL_HOST:
+fi
+
 if test $1 == "up"; then
-  ssh -i ~/.ssh/google_compute_engine -f -nNT -L $LOCAL_PORT:$REMOTE_HOST:$REMOTE_PORT $USER@$TUNNEL_HOST
+  ssh -i ~/.ssh/google_compute_engine -f -nNT -L $LOCAL_HOST_STR$LOCAL_PORT:$REMOTE_HOST:$REMOTE_PORT $USER@$TUNNEL_HOST
 elif test $1 == "down"; then
   kill -3 $(ps aux | grep -E 'ssh.*google' | grep -F $LOCAL_PORT:$REMOTE_HOST:$REMOTE_PORT | grep -F $USER@$TUNNEL_HOST | grep -Fv 'grep' | awk '{print $2}')
 else

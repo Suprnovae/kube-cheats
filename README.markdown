@@ -24,3 +24,12 @@ address therefore patching us through to the tunnel host itself :wink:.
 ```bash
 LOCAL_PORT=4002 USER=david TUNNEL_HOST=CONTROLLER_EXTERNAL_IP ./02-setup-ssh-tunnels.sh down
 ```
+
+## Flannel Config
+
+[flannel-config]: https://coreos.com/docs/cluster-management/setup/flannel-config#publishing-config-to-etcd
+
+## Setup Nodes
+```bash
+CONTROL_IP=CONTROLLER_INTERNAL_IP NODES=mercury venus earth mars ./03-setup-nodes.sh up
+```
