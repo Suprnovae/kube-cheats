@@ -6,10 +6,10 @@ command.
 ## Setup Kubernetes Controller
 ```bash
 # create box
-.PROJECT=xperiment ./01-setup-control.mech up
+PROJECT=xperiment ./01-setup-control.mech up
 
 # destroy box
-.PROJECT=xperiment ./01-setup-control.mech down
+PROJECT=xperiment ./01-setup-control.mech down
 ```
 
 ## Setup SSH Tunnel
@@ -26,10 +26,16 @@ LOCAL_PORT=4002 USER=david TUNNEL_HOST=CONTROLLER_EXTERNAL_IP ./02-setup-ssh-tun
 ```
 
 ## Flannel Config
+In order to supply the flannel subnet manager its proper [configuration][flannel-config], 
+one has to describe the setup in etcd.
+
+```bash
+CONTROL_HOST=CONTROLLER_EXTERNAL_IP MASK=10.X.0.0/16 ./03-config-flannel.sh up
+```
 
 [flannel-config]: https://coreos.com/docs/cluster-management/setup/flannel-config#publishing-config-to-etcd
 
 ## Setup Nodes
 ```bash
-CONTROL_IP=CONTROLLER_INTERNAL_IP NODES=mercury venus earth mars ./03-setup-nodes.sh up
+CONTROL_IP=CONTROLLER_INTERNAL_IP NODES="mercury venus earth mars" ./04-setup-nodes.sh up
 ```
