@@ -39,3 +39,18 @@ CONTROL_HOST=CONTROLLER_EXTERNAL_IP MASK=10.X.0.0/16 ./03-config-flannel.sh up
 ```bash
 CONTROL_IP=CONTROLLER_INTERNAL_IP NODES="mercury venus earth mars" ./04-setup-nodes.sh up
 ```
+
+## Deploy Kubernetes
+Kubernetes requires a few services to start doing it's stuff. Provided that
+the tunnel is up for `fleetctl` to do her work one may setup the 
+Kubernetosphere.
+
+## Create Registry Storage
+```bash
+LOCATION=EU NAME=example.port.rotterdam ./05-create-registry-storage.sh up
+```
+
+## Create Registry
+```bash
+```
+[docker-gcs-registry]: https://github.com/GoogleCloudPlatform/docker-registry-driver-gcs
