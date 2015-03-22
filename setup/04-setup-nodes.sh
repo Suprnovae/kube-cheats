@@ -14,7 +14,8 @@ function up() {
     --can-ip-forward \
     --scopes compute-rw \
     --metadata-from-file user-data=/tmp/$(basename $CLOUD_CONFIG) \
-    --zone $ZONE
+    --zone $ZONE \
+    --tags node $TAGS
 }
 
 function down() {
@@ -74,5 +75,5 @@ if test $1 == "up"; then
 elif test $1 == "down"; then
   down
 else
-  help;
+  help
 fi
