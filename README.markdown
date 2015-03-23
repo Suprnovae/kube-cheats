@@ -45,6 +45,15 @@ Kubernetes requires a few services to start doing it's stuff. Provided that
 the tunnel is up for `fleetctl` to do her work one may setup the 
 Kubernetosphere.
 
+```bash
+CONTROL_IP=CONTROLLER_INTERNAL_IP ./05-spawn-kubernetes-services.sh up
+```
+
+## Spawn DNS
+```bash
+DNS_SERVER_IP=? DNS_REPLICAS=1 DNS_DOMAIN=example.com spawn-skydns.sh up
+```
+
 ## Create Registry Storage
 ```bash
 LOCATION=EU NAME=example.port.rotterdam ./05-create-registry-storage.sh up
@@ -54,3 +63,5 @@ LOCATION=EU NAME=example.port.rotterdam ./05-create-registry-storage.sh up
 ```bash
 ```
 [docker-gcs-registry]: https://github.com/GoogleCloudPlatform/docker-registry-driver-gcs
+
+## Deploy Service
